@@ -1,7 +1,17 @@
 import PostGrid from "../posts/PostGrid";
 import classes from "./FeaturedPosts.module.css";
 
-const FeaturedPosts = (props) => {
+export type Props = {
+  posts: {
+    slug: string;
+    title: string;
+    image: string;
+    excerpt: string;
+    date: string;
+  }[];
+};
+
+const FeaturedPosts = (props: Props) => {
   return (
     <section className={classes.latest}>
       <h2>Featured Posts</h2>
