@@ -7,8 +7,8 @@ export type Props = {
     slug: string;
     title: string;
     image: string;
-    excerpt: string;
-    date: string;
+    excerpt?: string;
+    date: number;
   };
 };
 
@@ -34,6 +34,7 @@ const PostItem = (props: Props) => {
             width={300}
             height={200}
             layout="responsive"
+            priority
           />
         </div>
         <div className={classes.content}>

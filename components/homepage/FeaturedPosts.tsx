@@ -6,8 +6,8 @@ export type Props = {
     slug: string;
     title: string;
     image: string;
-    excerpt: string;
-    date: string;
+    excerpt?: string;
+    date: number;
   }[];
 };
 
