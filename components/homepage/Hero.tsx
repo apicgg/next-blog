@@ -10,6 +10,7 @@ function Hero() {
           alt="Anurag Pramanik Avatar"
           width={200}
           height={200}
+          priority
         />
       </div>
       <h1>Hi, I&apos;m Anurag</h1>
