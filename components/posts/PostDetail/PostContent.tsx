@@ -1,14 +1,7 @@
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import classes from "./PostContent.module.css";
 import PostHeader from "./PostHeader";
-
-// const DUMMY_POST = {
-//   slug: "getting-started-with-nextjs",
-//   title: "Getting started with Nextjs",
-//   image: "getting-started-nextjs.png",
-//   date: "2023-04-12",
-//   content: "# Something",
-// };
 
 export type PostContentProps = {
   post: {
@@ -23,10 +16,23 @@ export type PostContentProps = {
 const PostContent = ({ post }: PostContentProps) => {
   const imagePath = `/images/posts/${post.slug}/${post.image}`;
 
+  const customRenderers = {
+    image(image: { src: string; alt: string }) {
+      return (
+        <Image
+          src={`/images/posts/${post.slug}/${image.src}`}
+          alt={image.alt}
+          width={600}
+          height={300}
+        />
+      );
+    },
+  };
+
   return (
     <article className={classes.content}>
       <PostHeader title={post.title} image={imagePath} />
-      <ReactMarkdown>{post.content}</ReactMarkdown>
+      <ReactMarkdown renderers={customRenderers}>{post.content}</ReactMarkdown>
     </article>
   );
 };
